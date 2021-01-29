@@ -52,6 +52,8 @@ public class FootstepCreator : MonoBehaviour
             oldFootstep.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, t / shrinkTime);
             yield return null;
         }
+
+        Destroy(oldFootstep);
     }
 
 }
