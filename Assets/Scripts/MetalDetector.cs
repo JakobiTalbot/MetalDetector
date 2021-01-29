@@ -13,11 +13,12 @@ public class MetalDetector : MonoBehaviour
 
     void Update()
     {
+        Vector3 pos = transform.position;
+        float lowestDistance = Vector3.Distance(pos, findablesInRange[0].transform.position);
+
         if (findablesInRange.Count > 1)
         {
             int closestIndex = 0;
-            Vector3 pos = transform.position;
-            float lowestDistance = Vector3.Distance(pos, findablesInRange[0].transform.position);
             for (int i = 1; i < findablesInRange.Count; ++i)
             {
                 float dist;
