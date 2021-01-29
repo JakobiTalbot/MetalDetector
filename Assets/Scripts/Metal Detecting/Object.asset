@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db98f5de60f97054899b37dfffc51688, type: 3}
   m_Name: Object
   m_EditorClassIdentifier: 
+  objectName: coioil ibjhect
+  description: this is a very cool object
+  prefab: {fileID: 7458372501946648266, guid: 63bad6ccb9cbaf94e8382002791baa0e, type: 3}

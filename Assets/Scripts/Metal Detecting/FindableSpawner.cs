@@ -5,33 +5,40 @@ using Random = UnityEngine.Random;
 
 public class FindableSpawner : MonoBehaviour
 {
-     [SerializeField] int numberOfObjects;
-     [SerializeField] Transform _prefab;
-     [SerializeField] List<Vector3> _objectPoints;
-     
-     private LayerMask layer;
+    [SerializeField] List<Findables> objectsToSpawn;
 
-     private void Start()
-     {
-          layer = LayerMask.GetMask("Terrain");
-          RandomVector2();
-     }
+    private LayerMask layer;
+    private BoxCollider boxCollider;
 
-     void RandomVector2()
-     {
-          for (int i = 0; i < numberOfObjects; i++) 
-          {
-               int x = Random.Range(0, 200);
-               int z = Random.Range(0, 200);
+    private void Awake()
+    {
+        layer = LayerMask.GetMask("Terrain");
+        boxCollider = GetComponent<BoxCollider>();
+    }
 
-               var pointPos = new Vector3(x, transform.position.y, z);
-               RaycastHit hit;
-               if (Physics.Raycast(pointPos, Vector3.down, out hit, Mathf.Infinity, layer))
-               {
-                    pointPos.y -= hit.distance;
-                   _objectPoints.Add(pointPos);
-                   Instantiate(_prefab, pointPos, Quaternion.identity , transform); 
-               }
-          }
-     }
+    private void Start()
+    {
+        RandomVector2();
+    }
+
+    void RandomVector2()
+    {
+        foreach(Findables findable in objectsToSpawn)
+        {
+            var pointPos = RandomRange(boxCollider.bounds.min, boxCollider.bounds.max);
+            if (Physics.Raycast(pointPos, Vector3.down, out var hit, Mathf.Infinity, layer))
+            {
+                pointPos.y -= hit.distance;
+                var newFindable = Instantiate(findable.prefab, pointPos, Quaternion.identity, transform);
+
+                var newContainer = newFindable.gameObject.AddComponent<FindableContainer>();
+                newContainer.findable = findable;
+            }
+        }
+    }
+
+    Vector3 RandomRange(Vector3 min, Vector3 max)
+    {
+        return new Vector3(Random.Range(min.x, max.x), Random.Range(min.y, max.y), Random.Range(min.z, max.z));
+    }
 }
