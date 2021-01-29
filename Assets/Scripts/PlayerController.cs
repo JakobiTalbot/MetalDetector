@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public float moveSpeed = 10.0f;
+
     Camera cam;
     CharacterController characterController;
 
@@ -14,8 +16,18 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 moveVector = (horizontal * cam.transform.right) + (vertical * cam.transform.forward);
+        if(moveVector.sqrMagnitude > 1.0f)
+        {
+            moveVector.Normalize();
+        }
+
+        characterController.SimpleMove(moveVector * moveSpeed);
     }
 
 }
