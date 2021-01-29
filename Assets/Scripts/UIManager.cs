@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
         if (!instance)
             instance = this;
         StartCoroutine(Count());
+        progress.text = "0/" + numberOfCollectables;
     }
 
     IEnumerator Count()
