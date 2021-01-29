@@ -16,10 +16,10 @@ RenderSettings:
   serializedVersion: 9
   m_Fog: 1
   m_FogColor: {r: 0.54901963, g: 0.38636255, b: 0.121568635, a: 1}
-  m_FogMode: 3
+  m_FogMode: 2
   m_FogDensity: 0.02
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogEnd: 64.96
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 953876403}
   - component: {fileID: 953876402}
   - component: {fileID: 953876401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 1986479952}
   - component: {fileID: 1986479951}
   - component: {fileID: 1986479955}
+  - component: {fileID: 1986479956}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -505,6 +506,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+--- !u!114 &1986479956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986479950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b41a1574de344949bcaf79a22a4370c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepPrefab: {fileID: 5903469426180919839, guid: 622ba162139b25146a2591a87d919279, type: 3}
 --- !u!1 &2005911281
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,11 +9,14 @@ public class PlayerController : MonoBehaviour
 
     Camera cam;
     CharacterController characterController;
+    FootstepCreator testFootstepCreator;
+    float lastFootstepTime = 0.0f;
 
     private void Awake()
     {
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
+        testFootstepCreator = GetComponent<FootstepCreator>();
     }
 
     private void Update()
@@ -25,6 +28,15 @@ public class PlayerController : MonoBehaviour
         if(moveVector.sqrMagnitude > 1.0f)
         {
             moveVector.Normalize();
+        }
+
+        if(moveVector.sqrMagnitude > float.Epsilon)
+        {
+            if(Time.time - lastFootstepTime > 0.2f)
+            {
+                testFootstepCreator.CreateFootstep();
+                lastFootstepTime = Time.time;
+            }
         }
 
         characterController.SimpleMove(moveVector * moveSpeed);
