@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        if (!instance)
+        if (!instance.gameObject)
             instance = this;
         StartCoroutine(Count());
         progress.text = "0/" + numberOfCollectables;
