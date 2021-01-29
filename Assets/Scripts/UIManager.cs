@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        if (!instance.gameObject)
+        if (instance == null || instance.gameObject == null)
             instance = this;
         StartCoroutine(Count());
         progress.text = "0/" + numberOfCollectables;
@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
             secondsSinceStart += Time.deltaTime;
             int minutes = (int)(secondsSinceStart / 60f);
             int seconds = (int)(secondsSinceStart % 60f);
-            time.text = minutes + ":" + (seconds < 10 ? "0" + seconds.ToString() : seconds.ToString());
+            time.text = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds.ToString());
 
             yield return null;
         }
