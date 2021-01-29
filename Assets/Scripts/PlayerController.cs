@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             if(Time.time - lastFootstepTime > 0.2f)
             {
-                testFootstepCreator.CreateFootstep();
+                testFootstepCreator?.CreateFootstep();
                 lastFootstepTime = Time.time;
             }
         }
