@@ -9,29 +9,38 @@ public class FindableContainer : MonoBehaviour
 {
 
     public Findables findable;
-    [Tooltip("Reveal")]
-    [SerializeField]
-    float revealLandDistance = 1f;
-    [SerializeField]
-    float revealSeconds = 2f;
 
-    public IEnumerator Reveal()
+    public void Reveal()
     {
-        Vector3 landPosition = Random.insideUnitSphere;
-        landPosition = landPosition.normalized * revealLandDistance;
-        landPosition += transform.position;
-        landPosition.y = 10f;
-        Ray ray = new Ray(landPosition, Vector3.down);
-        Physics.Raycast(ray, out RaycastHit hit);
-        landPosition = hit.point;
+        StartCoroutine(DoReveal());
+    }
+
+    IEnumerator DoReveal()
+    {
+        const float revealSeconds = 1.0f;
+        Camera cam = Camera.main;
+
+        Vector3 destPos = cam.transform.position + cam.transform.forward * 3.0f;
+        Vector3 b1 = transform.position;
+        Vector3 b2 = transform.position + Vector3.up * 10.0f;
+        Vector3 b3 = destPos + cam.transform.forward * 10.0f;
+        Vector3 b4 = destPos;
 
         float lerp = 0f;
-        Vector3 startPos = transform.position;
-        while (lerp < 1f)
+        while (lerp <= revealSeconds)
         {
-            lerp += Time.deltaTime / revealSeconds;
-            transform.position = Vector3.Slerp(startPos, landPosition, lerp);
+            lerp += Time.deltaTime;
+
+            float t = EaseIn(lerp / revealSeconds);
+            transform.position = Util.Bezier(t, b4, b3, b2, b1);
             yield return null;
         }
+
+        transform.position = destPos;
+    }
+
+    float EaseIn(float t)
+    {
+        return 1.0f - Mathf.Cos((t * Mathf.PI) / 2.0f);
     }
 }

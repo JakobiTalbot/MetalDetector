@@ -54,7 +54,8 @@ public class Shovel : MonoBehaviour
             FindableContainer findable;
             if (findable = collider.GetComponent<FindableContainer>())
             {
-                StartCoroutine(findable.Reveal());
+                findable.Reveal();
+                return;
             }
         }
     }
