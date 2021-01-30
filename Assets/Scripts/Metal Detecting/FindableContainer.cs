@@ -12,6 +12,7 @@ public class FindableContainer : MonoBehaviour
     public void Reveal()
     {
         StartCoroutine(DoReveal());
+        UIManager.instance.IncrementProgress();
     }
 
     IEnumerator DoReveal()
