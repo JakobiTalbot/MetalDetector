@@ -7,22 +7,46 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    [SerializeField]
-    int numberOfCollectables;
+    [Header("References")]
+    public PlayerController player;
+
+    [Header("UI References")]
+    public ToolDisplay toolDisplay;
     [SerializeField]
     TextMeshProUGUI time;
     [SerializeField]
     TextMeshProUGUI progress;
 
+    [Header("Numbers")]
+    [SerializeField]
+    int numberOfCollectables;
+
     float secondsSinceStart;
     int numberCollected;
 
-    void Start()
+    private void Awake()
     {
         if (instance == null || instance.gameObject == null)
             instance = this;
-        StartCoroutine(Count());
         progress.text = "0/" + numberOfCollectables;
+
+        if(player != null)
+        {
+            player.OnToolChange += toolDisplay.SetTool;
+        }
+    }
+
+    void Start()
+    {
+        StartCoroutine(Count());
+    }
+
+    private void OnDisable()
+    {
+        if(player != null)
+        {
+            player.OnToolChange -= toolDisplay.SetTool;
+        }
     }
 
     IEnumerator Count()

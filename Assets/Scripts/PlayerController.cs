@@ -1,12 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[Serializable]
+public enum Tool
+{
+    Detector,
+    Shovel
+}
 
 public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 10.0f;
     public float rotateSpeed = 10.0f;
+
+    public Tool CurrentTool { get; private set; } = Tool.Detector;
+    public Action<Tool> OnToolChange;
 
     [SerializeField]
     GameObject metalDetector;
@@ -29,6 +40,11 @@ public class PlayerController : MonoBehaviour
         targetRotation = transform.rotation;
     }
 
+    private void Start()
+    {
+        SetTool(Tool.Detector);
+    }
+
     private void Update()
     {
         DoMovement();
@@ -40,8 +56,21 @@ public class PlayerController : MonoBehaviour
 
     void ToggleEquipment()
     {
-        metalDetector.SetActive(!metalDetector.activeSelf);
-        shovel.SetActive(!shovel.activeSelf);
+        Tool newTool = CurrentTool+1;
+        if ((int)newTool >= Enum.GetValues(typeof(Tool)).Length)
+            newTool = (Tool)0;
+
+        SetTool(newTool);
+    }
+
+    void SetTool(Tool tool)
+    {
+        CurrentTool = tool;
+
+        metalDetector.SetActive(CurrentTool == Tool.Detector);
+        shovel.SetActive(CurrentTool == Tool.Shovel);
+
+        OnToolChange?.Invoke(CurrentTool);
     }
 
     void DoMovement()
