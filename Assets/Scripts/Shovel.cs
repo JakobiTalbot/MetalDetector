@@ -63,6 +63,6 @@ public class Shovel : MonoBehaviour
     void SetIsDiggingFalse()
     {
         isDigging = false;
-        player.SetFrozen(false);
+        //player.SetFrozen(false);
     }
 }

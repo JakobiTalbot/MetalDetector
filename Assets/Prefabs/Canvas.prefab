@@ -170,7 +170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -58.1, y: 48.6}
+  m_AnchoredPosition: {x: -58.100098, y: 48.599976}
   m_SizeDelta: {x: 89.3555, y: 83.2945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8111271565860578063
@@ -429,7 +429,9 @@ MonoBehaviour:
   toolDisplay: {fileID: 8111271565860578063}
   time: {fileID: 3357823134712788372}
   progress: {fileID: 3357823135187112084}
-  continueButton: {fileID: 0}
+  objectName: {fileID: 655672245988717483}
+  objectDescription: {fileID: 196556787389754826}
+  continueButton: {fileID: 329356127811590518}
   numberOfCollectables: 10
 --- !u!1 &3357823134712788374
 GameObject:
@@ -498,7 +500,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -632,7 +634,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/??
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -766,7 +768,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: TAB
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1052,12 +1054,12 @@ GameObject:
   m_Component:
   - component: {fileID: 329356127811590518}
   m_Layer: 5
-  m_Name: FoundObject
+  m_Name: FoundObjectUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &329356127811590518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1093,7 +1095,7 @@ GameObject:
   - component: {fileID: 441245875640729540}
   - component: {fileID: 4967286878879597994}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,7 +1202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 441245875640729540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3357823134089486987}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: DisableContinueUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8876325195552927648
 GameObject:
   m_ObjectHideFlags: 0
