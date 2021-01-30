@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
 
     [Header("References")]
     public PlayerController player;
+    public Transform continueButton;
+
 
     [Header("UI References")]
     public ToolDisplay toolDisplay;
@@ -22,9 +24,6 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI objectName;
     [SerializeField]
     TextMeshProUGUI objectDescription;
-    [SerializeField]
-    Transform continueButton;
-
     [Header("Numbers")]
     [SerializeField]
     int numberOfCollectables;
