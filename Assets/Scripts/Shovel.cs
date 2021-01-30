@@ -31,11 +31,11 @@ public class Shovel : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isDigging)
+        if (Input.GetMouseButtonDown(0) && !isDigging && !player.Frozen) 
         {
             animator.SetTrigger("dig");
             isDigging = true;
-            player.SetFrozen(true);
+            player.Frozen = true;
         }
     }
 
@@ -64,7 +64,7 @@ public class Shovel : MonoBehaviour
     void SetIsDiggingFalse()
     {
         isDigging = false;
-        if(!UIManager.instance.continueButton.gameObject.activeSelf)
-            player.SetFrozen(false);
+        if (!UIManager.instance.continueButton.gameObject.activeSelf)
+            player.Frozen = false;
     }
 }

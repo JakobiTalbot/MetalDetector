@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
 
     public void DisplayContinueUI(Findables findable, FindableContainer container)
     {
-        player.SetFrozen(true);
+        player.Frozen = true;
         findableContainer = container.gameObject;
         objectName.text = findable.objectName;
         objectDescription.text = findable.description;
@@ -81,7 +81,8 @@ public class UIManager : MonoBehaviour
     
     public void DisableContinueUI()
     {
-        player.SetFrozen(false);
+        player.SetTool(Tool.Detector);
+        player.Frozen = false;
         // add findable to inventory
         Destroy(findableContainer);
         continueButton.gameObject.SetActive(false);

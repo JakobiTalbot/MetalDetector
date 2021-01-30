@@ -13,6 +13,8 @@ public enum Tool
 public class PlayerController : MonoBehaviour
 {
 
+    public bool Frozen { get; set; }
+
     public float moveSpeed = 10.0f;
     public float rotateSpeed = 10.0f;
 
@@ -30,8 +32,6 @@ public class PlayerController : MonoBehaviour
     LegManager legManager;
 
     Quaternion targetRotation;
-
-    bool frozen = false;
 
     private void Awake()
     {
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         DoMovement();
-        if (!frozen)
+        if (!Frozen)
         {
             DoLook();
 
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         SetTool(GetNextTool(), true);
     }
 
-    void SetTool(Tool tool, bool swapped = false)
+    public void SetTool(Tool tool, bool swapped = false)
     {
         CurrentTool = tool;
 
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 moveVector = Vector3.zero;
-        if(!frozen)
+        if(!Frozen)
             moveVector = (horizontal * cam.transform.right) + (vertical * cam.transform.forward);
 
         if(moveVector.sqrMagnitude > 1.0f)
@@ -122,11 +122,6 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
-    }
-
-    public void SetFrozen(bool isFrozen)
-    {
-        frozen = isFrozen;
     }
 
 }
