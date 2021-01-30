@@ -5,7 +5,7 @@ using UnityEngine;
 public class FootstepCreator : MonoBehaviour
 {
 
-    const float zfightAdjust = 0.001f;
+    const float zfightAdjust = 0.01f;
 
     public GameObject footstepPrefab;
     public int maxFootsteps = 10;
