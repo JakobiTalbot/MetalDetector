@@ -11,6 +11,13 @@ public class Shovel : MonoBehaviour
     [SerializeField]
     float digRadius = 3f;
 
+    AudioSource digAudio;
+
+    private void Start()
+    {
+        digAudio = GetComponent<AudioSource>();
+    }
+
     void OnEnable()
     {
         // play animation
@@ -29,6 +36,7 @@ public class Shovel : MonoBehaviour
         Ray ray = new Ray(shovelHeadTransform.position, Vector3.down);
         Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity, LayerMask.GetMask("Terrain"));
         Transform hole = Instantiate(holePrefab, hit.point, Quaternion.identity).transform;
+        digAudio.Play();
         hole.up = hit.normal;
         Collider[] colliders = Physics.OverlapSphere(hole.position, digRadius);
         foreach (Collider collider in colliders)
