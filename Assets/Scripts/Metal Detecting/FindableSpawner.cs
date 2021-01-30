@@ -31,9 +31,10 @@ public class FindableSpawner : MonoBehaviour
             {
                 pointPos.y -= hit.distance + objectDepth;
                 var newFindable = Instantiate(findable.prefab, pointPos, Quaternion.identity, transform);
-
+                
                 var newContainer = newFindable.gameObject.AddComponent<FindableContainer>();
                 newContainer.findable = findable;
+                
             }
         }
     }

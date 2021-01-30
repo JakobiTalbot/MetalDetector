@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.UIElements;
+using UnityEngine.Serialization;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,11 +18,18 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI time;
     [SerializeField]
     TextMeshProUGUI progress;
+    [SerializeField]
+    TextMeshProUGUI objectName;
+    [SerializeField]
+    TextMeshProUGUI objectDescription;
+    [SerializeField]
+    Transform continueButton;
 
     [Header("Numbers")]
     [SerializeField]
     int numberOfCollectables;
-
+    
+    GameObject findableContainer;
     float secondsSinceStart;
     int numberCollected;
 
@@ -60,6 +69,23 @@ public class UIManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void DisplayContinueUI(Findables findable, FindableContainer container)
+    {
+        player.gameObject.SetActive(false);
+        findableContainer = container.gameObject;
+        objectName.text = findable.objectName;
+        objectDescription.text = findable.description;
+        continueButton.gameObject.SetActive(true);
+    }
+    
+    public void DisableContinueUI()
+    {
+        player.gameObject.SetActive(true);
+        // add findable to inventory
+        findableContainer.SetActive(false);
+        continueButton.gameObject.SetActive(false);
     }
 
     public void IncrementProgress()

@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class FindableContainer : MonoBehaviour
 {
-
     public Findables findable;
 
     public void Reveal()
@@ -37,6 +36,7 @@ public class FindableContainer : MonoBehaviour
         }
 
         transform.position = destPos;
+        UIManager.instance.DisplayContinueUI(findable, this);
     }
 
     float EaseIn(float t)
