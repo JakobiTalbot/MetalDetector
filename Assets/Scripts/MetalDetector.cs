@@ -40,7 +40,10 @@ public class MetalDetector : MonoBehaviour
     {
         // play animation
         findablesInRange.Clear();
+        SetParticleValues(0.0f, 0.0f);
+        gigaParticles.SetActive(false);
     }
+
     void MakeNewSound()
     {
         const int sampleCount = 4410;
@@ -61,13 +64,6 @@ public class MetalDetector : MonoBehaviour
         newSineWave.SetData(sineData, 0);
         humSource.clip = newSineWave;
     }
-
-    private void OnDisable()
-    {
-        SetParticleValues(0.0f, 0.0f);
-        gigaParticles.SetActive(false);
-    }
-
 
     void Update()
     {
