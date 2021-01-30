@@ -34,7 +34,7 @@ public class FindableSpawner : MonoBehaviour
                 
                 var newContainer = newFindable.gameObject.AddComponent<FindableContainer>();
                 newContainer.findable = findable;
-                
+                Util.SetShader(newFindable.gameObject);
             }
         }
     }

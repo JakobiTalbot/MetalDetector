@@ -21,4 +21,34 @@ public class Util
     static float B2(float t) { return 3.0f * t * t * (1.0f - t); }
     static float B3(float t) { return 3.0f * t * (1.0f - t) * (1.0f - t); }
     static float B4(float t) { return (1.0f - t) * (1.0f - t) * (1.0f - t); }
+
+    static Shader toonShader = null;
+    public static void SetShader(GameObject obj)
+    {
+        if (toonShader == null)
+            toonShader = Shader.Find("Toons/Toon Lite");
+        if(toonShader == null)
+        {
+            Debug.LogError("Shader couldn't be found!");
+            return;
+        }
+
+        Renderer mr = obj.GetComponent<Renderer>();
+        if (mr != null)
+        {
+            foreach(Material m in mr.materials)
+            {
+                m.shader = toonShader;
+            }
+        }
+
+        // go through all children
+        foreach (Transform t in obj.transform)
+        {
+            // check if this child has a meshrenderer
+            SetShader(t.gameObject);
+        }
+
+    }
+
 }

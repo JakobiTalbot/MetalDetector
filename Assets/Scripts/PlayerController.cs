@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         }
 
         targetRotation = transform.rotation;
+        Util.SetShader(gameObject);
     }
 
     private void Start()
