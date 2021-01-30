@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a8043fe7aa34b6e4a9ab6542120fd97d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,7 +157,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a8043fe7aa34b6e4a9ab6542120fd97d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -204,7 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d70b0c6089e9b4b94a7f27489b7e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holePrefab: {fileID: 6503690165099664530, guid: e43cecf4e6c2d0a4780f7aeb76696e00, type: 3}
+  holePrefab: {fileID: 5411293951911835585, guid: e43cecf4e6c2d0a4780f7aeb76696e00, type: 3}
+  shovelHeadTransform: {fileID: 111925993}
 --- !u!1 &1281820694325887500
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d50f62b7e0dbdf4b9a0e79d608d221e, type: 2}
+  - {fileID: 2100000, guid: a8043fe7aa34b6e4a9ab6542120fd97d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -399,7 +400,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a8043fe7aa34b6e4a9ab6542120fd97d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
