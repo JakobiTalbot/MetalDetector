@@ -8,13 +8,17 @@ using NaughtyAttributes;
 /// </summary>
 public class FindableContainer : MonoBehaviour
 {
+    public bool Revealed { get; private set; } = false;
+
     public Findables findable;
+
+    Quaternion startRotation;
 
     [Button("Reveal")]
     public void Reveal()
     {
+        startRotation = transform.rotation;
         StartCoroutine(DoReveal());
-
     }
 
     IEnumerator DoReveal()
@@ -42,6 +46,21 @@ public class FindableContainer : MonoBehaviour
 
         transform.position = destPos;
         UIManager.instance.DisplayContinueUI(findable, this);
+        Revealed = true;
+    }
+
+    private void Update()
+    {
+        const float rotateSpeed = 10.0f;
+        const float rotateAmount = 0.2f;
+        if(Revealed)
+        {
+            float xpos = -(Input.mousePosition.x - (Screen.width / 2.0f)) * rotateAmount;
+            float ypos = (Input.mousePosition.y - (Screen.height / 2.0f)) * rotateAmount;
+            Quaternion addedRotation = Quaternion.Euler(ypos, xpos, 0.0f);
+            Quaternion destRotation = startRotation * addedRotation;
+            transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, destRotation, Time.deltaTime * rotateSpeed);
+        }
     }
 
     float EaseInOut(float t)
