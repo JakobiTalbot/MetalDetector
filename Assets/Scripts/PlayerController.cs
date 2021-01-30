@@ -101,12 +101,20 @@ public class PlayerController : MonoBehaviour
             moveVector.Normalize();
         }
 
-        if(legManager != null)
-        {
-            legManager.LegOffset = moveVector;
-        }
-
+        Vector3 oldPos = transform.position;
         characterController.SimpleMove(moveVector * moveSpeed);
+        Vector3 newPos = transform.position;
+
+        if (legManager != null)
+        {
+            Vector3 dif = newPos - oldPos;
+            float dot = Vector3.Dot(dif.normalized, moveVector.normalized);
+            if (dot > 0.2f)
+            {
+                dif.Normalize();
+            }
+            legManager.LegOffset = dif;
+        }
     }
 
     void DoLook()
