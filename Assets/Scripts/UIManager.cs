@@ -81,7 +81,6 @@ public class UIManager : MonoBehaviour
     
     public void DisableContinueUI()
     {
-        player.SetFrozen(false);
         // add findable to inventory
         findableContainer.SetActive(false);
         continueButton.gameObject.SetActive(false);
