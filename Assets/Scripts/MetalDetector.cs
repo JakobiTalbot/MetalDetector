@@ -60,6 +60,11 @@ public class MetalDetector : MonoBehaviour
         humSource.clip = newSineWave;
     }
 
+    private void OnDisable()
+    {
+        SetParticleValues(0.0f, 0.0f);
+    }
+
 
     void Update()
     {
@@ -78,11 +83,8 @@ public class MetalDetector : MonoBehaviour
             float pitch = pitchCurve.Evaluate(percentage);
 
             float emissionRate = particleEmissionCurve.Evaluate(percentage) * maxParticleEmission;
-            var emission = particles.emission;
-            emission.rateOverTime = emissionRate;
             float speed = particleSpeedCurve.Evaluate(percentage) * maxParticleSpeed;
-            var main = particles.main;
-            main.startSpeed = speed;
+            SetParticleValues(emissionRate, speed);
 
             if (distance <= detectionRange.x)
             {
@@ -96,12 +98,16 @@ public class MetalDetector : MonoBehaviour
         else if(humSource.isPlaying)
         {
             humSource.Pause();
-
-            var emission = particles.emission;
-            emission.rateOverTime = 0f;
-            var main = particles.main;
-            main.startSpeed = 0f;
+            SetParticleValues(0.0f, 0.0f);
         }
+    }
+
+    void SetParticleValues(float emissionRate, float startSpeed)
+    {
+        var emission = particles.emission;
+        emission.rateOverTime = emissionRate;
+        var main = particles.main;
+        main.startSpeed = startSpeed;
     }
 
     FindableContainer GetClosestFindable(out float closestDistance)
