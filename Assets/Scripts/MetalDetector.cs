@@ -27,6 +27,8 @@ public class MetalDetector : MonoBehaviour
     AudioSource humSource;
     [SerializeField]
     ParticleSystem particles;
+    [SerializeField]
+    GameObject gigaParticles;
 
     void Start()
     {
@@ -63,6 +65,7 @@ public class MetalDetector : MonoBehaviour
     private void OnDisable()
     {
         SetParticleValues(0.0f, 0.0f);
+        gigaParticles.SetActive(false);
     }
 
 
@@ -89,7 +92,11 @@ public class MetalDetector : MonoBehaviour
             if (distance <= detectionRange.x)
             {
                 pitch += Mathf.Sin(Time.time * weeWooSpeed) * weeWooAmplitude;
-                // TODO: more, different coloured particles here
+                gigaParticles.SetActive(true);
+            }
+            else if (gigaParticles.activeSelf)
+            {
+                gigaParticles.SetActive(false);
             }
 
             humSource.volume = volume;
