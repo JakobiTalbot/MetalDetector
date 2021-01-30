@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-[RequireComponent(typeof(FootstepCreator))]
 public class LegController : MonoBehaviour
 {
 
@@ -24,12 +23,17 @@ public class LegController : MonoBehaviour
         legRenderer = GetComponent<LineRenderer>();
         legRenderer.positionCount = linePoints;
         legRenderer.useWorldSpace = true;
-        footstepCreator = GetComponent<FootstepCreator>();
+        footstepCreator = GetComponentInChildren<FootstepCreator>();
         attachedPlayer = GetComponentInParent<PlayerController>();
+
+        footPos = footTransform.position;
     }
 
     private void Update()
     {
+        if (!IsMoving)
+            footTransform.position = footPos;
+
         Vector3 startPos = transform.position;
         Vector3 endPos = footTransform.position;
         footPos = endPos;
@@ -54,8 +58,6 @@ public class LegController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!IsMoving)
-            footTransform.position = footPos;
     }
 
     public void MoveTo(Vector3 pos)
