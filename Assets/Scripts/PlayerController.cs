@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10.0f;
     public float rotateSpeed = 10.0f;
 
+    [SerializeField]
+    GameObject metalDetector;
+    [SerializeField]
+    GameObject shovel;
+
     Camera cam;
     CharacterController characterController;
     FootstepCreator testFootstepCreator;
@@ -28,6 +33,15 @@ public class PlayerController : MonoBehaviour
     {
         DoMovement();
         DoLook();
+
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(1))
+            ToggleEquipment();
+    }
+
+    void ToggleEquipment()
+    {
+        metalDetector.SetActive(!metalDetector.activeSelf);
+        shovel.SetActive(!shovel.activeSelf);
     }
 
     void DoMovement()

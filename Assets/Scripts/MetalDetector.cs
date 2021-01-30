@@ -20,6 +20,11 @@ public class MetalDetector : MonoBehaviour
         humSource = GetComponent<AudioSource>();
     }
 
+    void OnEnable()
+    {
+        // play animation
+    }
+
     void Update()
     {
         GetClosestFindable(out var distance);
