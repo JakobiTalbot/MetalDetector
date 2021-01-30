@@ -16,12 +16,11 @@ public class MetalDetector : MonoBehaviour
     public float weeWooSpeed = 1.0f;
     public float weeWooAmplitude = 1.0f;
 
-    List<FindableContainer> findablesInRange;
+    List<FindableContainer> findablesInRange = new List<FindableContainer>();
     AudioSource humSource;
 
     void Start()
     {
-        findablesInRange = new List<FindableContainer>();
         humSource = GetComponent<AudioSource>();
     }
 
