@@ -28,7 +28,7 @@ public class IntroManager : MonoBehaviour
     [SerializeField]
     AudioSource introMusic;
     [SerializeField]
-    TextMeshPro crawlText;
+    Transform crawlText;
     [SerializeField]
     float crawlSpeed = 5f;
 
@@ -113,7 +113,7 @@ public class IntroManager : MonoBehaviour
         crawlText.gameObject.SetActive(true);
         while (true)
         {
-            crawlText.transform.position += crawlText.transform.up * crawlSpeed * Time.deltaTime;
+            crawlText.position += crawlText.up * crawlSpeed * Time.deltaTime;
 
             yield return null;
         }
