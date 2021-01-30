@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEditor.UIElements;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -24,19 +25,22 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI objectName;
     [SerializeField]
     TextMeshProUGUI objectDescription;
-    [Header("Numbers")]
     [SerializeField]
-    int numberOfCollectables;
+    GameObject gameOverUI;
+    [SerializeField]
+    TextMeshProUGUI gameOverTime;
+    [Header("Numbers")]
+    public int numberOfFindables;
     
     GameObject findableContainer;
     float secondsSinceStart;
-    int numberCollected;
+    int findablesCollected;
 
     private void Awake()
     {
         if (instance == null || instance.gameObject == null)
             instance = this;
-        progress.text = "0/" + numberOfCollectables;
+        progress.text = "0/" + numberOfFindables;
 
         if(player != null)
         {
@@ -86,11 +90,35 @@ public class UIManager : MonoBehaviour
         // add findable to inventory
         Destroy(findableContainer);
         continueButton.gameObject.SetActive(false);
+        IncrementProgress();
     }
 
     public void IncrementProgress()
     {
-        ++numberCollected;
-        progress.text = numberCollected + "/" + numberOfCollectables;
+        ++findablesCollected;
+        progress.text = findablesCollected + "/" + numberOfFindables;
+
+        // check win
+        if (findablesCollected >= numberOfFindables)
+        {
+            Win();
+        }
+    }
+
+    void Win()
+    {
+        toolDisplay.gameObject.SetActive(false);
+        time.gameObject.SetActive(false);
+        progress.gameObject.SetActive(false);
+        player.Frozen = true;
+        gameOverUI.SetActive(true);
+        int minutes = (int)(secondsSinceStart / 60f);
+        int seconds = (int)(secondsSinceStart % 60f);
+        gameOverTime.text = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds.ToString());
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }

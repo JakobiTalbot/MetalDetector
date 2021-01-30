@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         legManager = GetComponentInChildren<LegManager>();
         if(legManager == null)
         {
-            Debug.LogError("o no there is no leggies uwu");
+            Debug.LogError("Leg manager missing!");
         }
 
         targetRotation = transform.rotation;
