@@ -27,6 +27,7 @@ public class MetalDetector : MonoBehaviour
     void OnEnable()
     {
         // play animation
+        findablesInRange.Clear();
     }
 
     void Update()
