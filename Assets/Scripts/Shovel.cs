@@ -27,7 +27,7 @@ public class Shovel : MonoBehaviour
     void Dig()
     {
         Ray ray = new Ray(shovelHeadTransform.position, Vector3.down);
-        Physics.Raycast(ray, out RaycastHit hit, LayerMask.GetMask("Terrain"));
+        Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity, LayerMask.GetMask("Terrain"));
         Transform hole = Instantiate(holePrefab, hit.point, Quaternion.identity).transform;
         hole.up = hit.normal;
         Collider[] colliders = Physics.OverlapSphere(hole.position, digRadius);
