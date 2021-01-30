@@ -33,7 +33,7 @@ public class Util
             return;
         }
 
-        Renderer mr = obj.GetComponent<Renderer>();
+        MeshRenderer mr = obj.GetComponent<MeshRenderer>();
         if (mr != null)
         {
             foreach(Material m in mr.materials)
