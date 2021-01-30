@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class FindableSpawner : MonoBehaviour
 {
-    [SerializeField] List<Findables> objectsToSpawn;
+    public List<Findables> objectsToSpawn;
     [SerializeField] float objectDepth = 1f;
 
     private LayerMask layer;

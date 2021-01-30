@@ -12,11 +12,11 @@ public class UIManager : MonoBehaviour
 
     [Header("References")]
     public PlayerController player;
-    public Transform continueButton;
-
+    public FindableSpawner objectSpawner;
 
     [Header("UI References")]
     public ToolDisplay toolDisplay;
+    public Transform continueButton;
     [SerializeField]
     TextMeshProUGUI time;
     [SerializeField]
@@ -29,23 +29,28 @@ public class UIManager : MonoBehaviour
     GameObject gameOverUI;
     [SerializeField]
     TextMeshProUGUI gameOverTime;
-    [Header("Numbers")]
-    public int numberOfFindables;
     
     GameObject findableContainer;
     float secondsSinceStart;
+    int numberOfFindables;
     int findablesCollected;
 
     private void Awake()
     {
         if (instance == null || instance.gameObject == null)
             instance = this;
-        progress.text = "0/" + numberOfFindables;
 
         if(player != null)
         {
             player.OnToolChange += toolDisplay.SetTool;
         }
+
+        if(objectSpawner != null)
+        {
+            numberOfFindables = objectSpawner.objectsToSpawn.Count;
+        }
+
+        progress.text = "0/" + numberOfFindables;
     }
 
     void Start()
