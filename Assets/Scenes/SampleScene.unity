@@ -556,6 +556,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1410113028853855283, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410113028853855283, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 13107
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410113028853855283, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 52428
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410113028853855283, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410113028853855283, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410113028853855283, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410113028853855283, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410113028853855283, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1410113028853855293, guid: e6ca989ea50aff14da49e1c40e14b923, type: 3}
       propertyPath: m_Name
       value: Sandstorm
