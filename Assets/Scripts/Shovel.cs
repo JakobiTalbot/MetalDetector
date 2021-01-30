@@ -11,11 +11,15 @@ public class Shovel : MonoBehaviour
     [SerializeField]
     float digRadius = 3f;
 
+    Animator animator;
+    bool canDig = true;
+
     AudioSource digAudio;
 
     private void Start()
     {
         digAudio = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -25,19 +29,22 @@ public class Shovel : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canDig)
         {
-            Dig();
+            animator.SetTrigger("dig");
+            canDig = false;
         }
     }
 
-    void Dig()
+    void CreateHole()
     {
-        Ray ray = new Ray(shovelHeadTransform.position, Vector3.down);
+        digAudio.Play();
+
+        Ray ray = new Ray(shovelHeadTransform.position + Vector3.up * 5, Vector3.down);
         Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity, LayerMask.GetMask("Terrain"));
         Transform hole = Instantiate(holePrefab, hit.point, Quaternion.identity).transform;
-        digAudio.Play();
         hole.up = hit.normal;
+
         Collider[] colliders = Physics.OverlapSphere(hole.position, digRadius);
         foreach (Collider collider in colliders)
         {
@@ -45,8 +52,12 @@ public class Shovel : MonoBehaviour
             if (findable = collider.GetComponent<FindableContainer>())
             {
                 StartCoroutine(findable.Reveal());
-                return;
             }
         }
+    }
+
+    void SetCanDig()
+    {
+        canDig = true;
     }
 }
