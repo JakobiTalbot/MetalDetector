@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed = 10.0f;
 
     public Tool CurrentTool { get; private set; } = Tool.Detector;
-    public Action<Tool> OnToolChange;
+    // Tool = new tool, bool = was swapped (or just set)
+    public Action<Tool, bool> OnToolChange;
 
     [SerializeField]
     GameObject metalDetector;
@@ -54,23 +55,28 @@ public class PlayerController : MonoBehaviour
             ToggleEquipment();
     }
 
-    void ToggleEquipment()
+    Tool GetNextTool()
     {
         Tool newTool = CurrentTool+1;
         if ((int)newTool >= Enum.GetValues(typeof(Tool)).Length)
-            newTool = (Tool)0;
+            newTool = 0;
 
-        SetTool(newTool);
+        return newTool;
     }
 
-    void SetTool(Tool tool)
+    void ToggleEquipment()
+    {
+        SetTool(GetNextTool(), true);
+    }
+
+    void SetTool(Tool tool, bool swapped = false)
     {
         CurrentTool = tool;
 
         metalDetector.SetActive(CurrentTool == Tool.Detector);
         shovel.SetActive(CurrentTool == Tool.Shovel);
 
-        OnToolChange?.Invoke(CurrentTool);
+        OnToolChange?.Invoke(GetNextTool(), swapped);
     }
 
     void DoMovement()
