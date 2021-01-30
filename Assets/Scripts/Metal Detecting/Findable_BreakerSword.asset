@@ -15,3 +15,4 @@ MonoBehaviour:
   objectName: Sword
   description: good object
   prefab: {fileID: 4518633901312169094, guid: f4a8046999b2e25488a8286012987a67, type: 3}
+  showcaseCameraOffset: {x: 0, y: -0.63, z: -0.36}

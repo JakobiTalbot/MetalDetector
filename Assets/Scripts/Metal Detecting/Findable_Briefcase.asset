@@ -15,3 +15,4 @@ MonoBehaviour:
   objectName: Briefcase
   description: good object
   prefab: {fileID: 3781696692254620662, guid: 20c0f4f5698136d43b9676eb9afedc3f, type: 3}
+  showcaseCameraOffset: {x: 0, y: 0.11, z: -1.67}

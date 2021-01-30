@@ -15,3 +15,4 @@ MonoBehaviour:
   objectName: Bit Coin
   description: good object
   prefab: {fileID: 2601382826258567303, guid: 19afb1f00c3179847a065371d7e65419, type: 3}
+  showcaseCameraOffset: {x: 0, y: 0, z: -2.16}

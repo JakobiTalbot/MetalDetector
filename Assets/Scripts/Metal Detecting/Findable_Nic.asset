@@ -15,3 +15,4 @@ MonoBehaviour:
   objectName: Nic
   description: good object
   prefab: {fileID: 1163360215570786165, guid: 1e1befd0ac0316a4ca915248a618450a, type: 3}
+  showcaseCameraOffset: {x: 0, y: 0, z: -2.14}
