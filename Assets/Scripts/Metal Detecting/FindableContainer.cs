@@ -19,7 +19,7 @@ public class FindableContainer : MonoBehaviour
 
     IEnumerator DoReveal()
     {
-        const float revealSeconds = 1.0f;
+        const float revealSeconds = 2.0f;
         Camera cam = Camera.main;
 
         Vector3 b1 = transform.position;
@@ -35,7 +35,7 @@ public class FindableContainer : MonoBehaviour
 
             lerp += Time.deltaTime;
 
-            float t = EaseIn(lerp / revealSeconds);
+            float t = EaseInOut(lerp / revealSeconds);
             transform.position = Util.Bezier(t, b4, b3, b2, b1);
             yield return null;
         }
@@ -44,8 +44,8 @@ public class FindableContainer : MonoBehaviour
         UIManager.instance.DisplayContinueUI(findable, this);
     }
 
-    float EaseIn(float t)
+    float EaseInOut(float t)
     {
-        return 1.0f - Mathf.Cos((t * Mathf.PI) / 2.0f);
+        return 1.0f - (1.0f - t) * (1.0f - t);
     }
 }
