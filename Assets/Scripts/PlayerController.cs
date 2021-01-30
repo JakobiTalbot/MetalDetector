@@ -53,9 +53,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        DoMovement();
         if (!frozen)
         {
-            DoMovement();
             DoLook();
 
             if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(1))
@@ -92,7 +92,10 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 moveVector = (horizontal * cam.transform.right) + (vertical * cam.transform.forward);
+        Vector3 moveVector = Vector3.zero;
+        if(!frozen)
+            moveVector = (horizontal * cam.transform.right) + (vertical * cam.transform.forward);
+
         if(moveVector.sqrMagnitude > 1.0f)
         {
             moveVector.Normalize();
