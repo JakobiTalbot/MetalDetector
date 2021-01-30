@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Findable_Nic
   m_EditorClassIdentifier: 
   objectName: Nic
-  description: 
+  description: good object
   prefab: {fileID: 1163360215570786165, guid: 1e1befd0ac0316a4ca915248a618450a, type: 3}

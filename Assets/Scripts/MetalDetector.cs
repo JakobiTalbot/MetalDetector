@@ -70,6 +70,13 @@ public class MetalDetector : MonoBehaviour
 
             for (int i = 0; i < findablesInRange.Count; ++i)
             {
+                if(findablesInRange[i] == null)
+                {
+                    findablesInRange.RemoveAt(i);
+                    i -= 1;
+                    continue;
+                }
+
                 float dist;
                 if ((dist = Vector3.Distance(pos, findablesInRange[i].transform.position)) < closestDistance)
                 {

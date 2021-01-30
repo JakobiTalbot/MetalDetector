@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Findable_Skull
   m_EditorClassIdentifier: 
   objectName: Skull
-  description: 
+  description: good object
   prefab: {fileID: 966018194235488741, guid: ddba0d3f604c05d47b3c7f2ee1c150cc, type: 3}

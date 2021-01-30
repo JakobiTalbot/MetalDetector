@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Findable_BitCoin
   m_EditorClassIdentifier: 
   objectName: Bit Coin
-  description: 
+  description: good object
   prefab: {fileID: 2601382826258567303, guid: 19afb1f00c3179847a065371d7e65419, type: 3}

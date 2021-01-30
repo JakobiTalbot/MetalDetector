@@ -109,10 +109,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 11400000, guid: e9ae29b6b497aa748b3208e6760995c9, type: 2}
-  - {fileID: 11400000, guid: e9ae29b6b497aa748b3208e6760995c9, type: 2}
-  - {fileID: 11400000, guid: e9ae29b6b497aa748b3208e6760995c9, type: 2}
-  - {fileID: 11400000, guid: e9ae29b6b497aa748b3208e6760995c9, type: 2}
-  - {fileID: 11400000, guid: e9ae29b6b497aa748b3208e6760995c9, type: 2}
-  - {fileID: 11400000, guid: e9ae29b6b497aa748b3208e6760995c9, type: 2}
+  - {fileID: 11400000, guid: 6d9b698412f870f4c9601a495fc70df6, type: 2}
+  - {fileID: 11400000, guid: ba7d549de50084648ba17277309e46e2, type: 2}
+  - {fileID: 11400000, guid: 082aaac270126f24396122de569f1339, type: 2}
+  - {fileID: 11400000, guid: 3daf48bf7a3d79947a2cb071fc3dd97b, type: 2}
+  - {fileID: 11400000, guid: 438cd347ed2dec547a333778544a965f, type: 2}
+  - {fileID: 11400000, guid: e5b3482b52b9c4048a75920fab3a13ce, type: 2}
+  - {fileID: 11400000, guid: c7226b61f6a013940b9d9e6aff2e5354, type: 2}
+  - {fileID: 11400000, guid: ec4fac00bc368c34b8b439c31ef6b4e8, type: 2}
   objectDepth: 1

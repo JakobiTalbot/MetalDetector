@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Findable_Bone
   m_EditorClassIdentifier: 
   objectName: Bone
-  description: 
+  description: good object
   prefab: {fileID: 580241013575658523, guid: 1415e2d407115424ab0eee636adac721, type: 3}

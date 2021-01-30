@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Findable_BreakerSword
   m_EditorClassIdentifier: 
   objectName: Sword
-  description: 
+  description: good object
   prefab: {fileID: 4518633901312169094, guid: f4a8046999b2e25488a8286012987a67, type: 3}
