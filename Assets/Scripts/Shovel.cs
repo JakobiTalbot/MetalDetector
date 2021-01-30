@@ -54,6 +54,7 @@ public class Shovel : MonoBehaviour
             FindableContainer findable;
             if (findable = collider.GetComponent<FindableContainer>())
             {
+                findable.transform.position = hole.position;
                 findable.Reveal();
                 return;
             }
