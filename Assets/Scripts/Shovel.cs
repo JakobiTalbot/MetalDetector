@@ -65,6 +65,6 @@ public class Shovel : MonoBehaviour
     {
         isDigging = false;
         if (!UIManager.instance.continueButton.gameObject.activeSelf)
-            player.Frozen = true;
+            player.Frozen = false;
     }
 }

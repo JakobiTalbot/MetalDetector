@@ -13,12 +13,14 @@ public class UIManager : MonoBehaviour
     [Header("References")]
     public PlayerController player;
     public FindableSpawner objectSpawner;
-
+    
     [Header("UI References")]
     public ToolDisplay toolDisplay;
     public Transform continueButton;
     [SerializeField]
     TextMeshProUGUI time;
+    [SerializeField] 
+    TextMeshProUGUI popupNotification;
     [SerializeField]
     TextMeshProUGUI progress;
     [SerializeField]
@@ -29,7 +31,10 @@ public class UIManager : MonoBehaviour
     GameObject gameOverUI;
     [SerializeField]
     TextMeshProUGUI gameOverTime;
-    
+    [SerializeField] 
+    Findables findable;
+
+    Animator popupAnim;
     GameObject findableContainer;
     float secondsSinceStart;
     int numberOfFindables;
@@ -56,6 +61,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(Count());
+        popupAnim = popupNotification.GetComponentInParent<Animator>();
     }
 
     private void OnDisable()
@@ -79,12 +85,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void DisplayContinueUI(Findables findable, FindableContainer container)
+    public void DisplayContinueUI(Findables _findable, FindableContainer container)
     {
         player.Frozen = true;
         findableContainer = container.gameObject;
-        objectName.text = findable.objectName;
-        objectDescription.text = findable.description;
+        findable = _findable;
+        objectName.text = _findable.objectName;
+        objectDescription.text = _findable.description;
         continueButton.gameObject.SetActive(true);
     }
     
@@ -92,10 +99,16 @@ public class UIManager : MonoBehaviour
     {
         player.SetTool(Tool.Detector);
         player.Frozen = false;
-        // add findable to inventory
+
         Destroy(findableContainer);
         continueButton.gameObject.SetActive(false);
         IncrementProgress();
+        
+        // Popup
+        string temp = $"{findable.objectName} found:@ {findable.description}";
+        temp = temp.Replace("@", System.Environment.NewLine);
+        popupNotification.text = temp;
+        popupAnim.SetBool("Popup", true);
     }
 
     public void IncrementProgress()
