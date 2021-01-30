@@ -269,7 +269,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4d50f62b7e0dbdf4b9a0e79d608d221e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -579,24 +579,24 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.89
       value: 1.8
-      inSlope: 0.8888893
-      outSlope: 0.8888893
+      inSlope: 0.80136997
+      outSlope: 0.80136997
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.9
+      time: 0.998291
       value: 2
-      inSlope: 0
-      outSlope: 0
+      inSlope: 6.363636
+      outSlope: 6.363636
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 2
+      value: 2.5
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -606,6 +606,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  weeWooSpeed: 20
+  weeWooAmplitude: 0.2
 --- !u!82 &3014454133817803554
 AudioSource:
   m_ObjectHideFlags: 0

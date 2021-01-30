@@ -6,10 +6,15 @@ using NaughtyAttributes;
 public class MetalDetector : MonoBehaviour
 {
 
+    [Header("Hum")]
     [MinMaxSlider(0.0f, 100.0f)]
     public Vector2 detectionRange;
     public AnimationCurve volumeCurve;
     public AnimationCurve pitchCurve;
+
+    [Header("WeeWoo")]
+    public float weeWooSpeed = 1.0f;
+    public float weeWooAmplitude = 1.0f;
 
     List<FindableContainer> findablesInRange;
     AudioSource humSource;
@@ -40,6 +45,11 @@ public class MetalDetector : MonoBehaviour
 
             float volume = volumeCurve.Evaluate(percentage);
             float pitch = pitchCurve.Evaluate(percentage);
+
+            if (distance <= detectionRange.x)
+            {
+                pitch += Mathf.Sin(Time.time * weeWooSpeed) * weeWooAmplitude;
+            }
 
             humSource.volume = volume;
             humSource.pitch = pitch;
