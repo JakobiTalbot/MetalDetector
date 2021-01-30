@@ -27,8 +27,7 @@ public class PlayerController : MonoBehaviour
 
     Camera cam;
     CharacterController characterController;
-    FootstepCreator testFootstepCreator;
-    float lastFootstepTime = 0.0f;
+    LegManager legManager;
 
     Quaternion targetRotation;
 
@@ -38,7 +37,11 @@ public class PlayerController : MonoBehaviour
     {
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
-        testFootstepCreator = GetComponent<FootstepCreator>();
+        legManager = GetComponentInChildren<LegManager>();
+        if(legManager == null)
+        {
+            Debug.LogError("o no there is no leggies uwu");
+        }
 
         targetRotation = transform.rotation;
     }
@@ -95,13 +98,9 @@ public class PlayerController : MonoBehaviour
             moveVector.Normalize();
         }
 
-        if(moveVector.sqrMagnitude > float.Epsilon)
+        if(legManager != null)
         {
-            if(Time.time - lastFootstepTime > 0.2f)
-            {
-                testFootstepCreator?.CreateFootstep();
-                lastFootstepTime = Time.time;
-            }
+            legManager.LegOffset = moveVector;
         }
 
         characterController.SimpleMove(moveVector * moveSpeed);

@@ -17,7 +17,7 @@ public class FootstepCreator : MonoBehaviour
     /// </summary>
     public void CreateFootstep()
     {
-        CreateFootstep(transform.position);
+        CreateFootstep(transform.position + Vector3.up * 2.0f);
     }
 
     /// <summary>
