@@ -8,6 +8,8 @@ public class Shovel : MonoBehaviour
     GameObject holePrefab;
     [SerializeField]
     Transform shovelHeadTransform;
+    [SerializeField]
+    float digRadius = 3f;
 
     void OnEnable()
     {
@@ -25,8 +27,18 @@ public class Shovel : MonoBehaviour
     void Dig()
     {
         Ray ray = new Ray(shovelHeadTransform.position, Vector3.down);
-        Physics.Raycast(ray, out RaycastHit hit);
-
-        Instantiate(holePrefab, hit.point, Quaternion.identity).transform.up = hit.normal;
+        Physics.Raycast(ray, out RaycastHit hit, LayerMask.GetMask("Terrain"));
+        Transform hole = Instantiate(holePrefab, hit.point, Quaternion.identity).transform;
+        hole.up = hit.normal;
+        Collider[] colliders = Physics.OverlapSphere(hole.position, digRadius);
+        foreach (Collider collider in colliders)
+        {
+            FindableContainer findable;
+            if (findable = collider.GetComponent<FindableContainer>())
+            {
+                StartCoroutine(findable.Reveal());
+                return;
+            }
+        }
     }
 }
