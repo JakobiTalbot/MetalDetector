@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     Quaternion targetRotation;
 
+    bool frozen = false;
+
     private void Awake()
     {
         cam = Camera.main;
@@ -48,11 +50,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        DoMovement();
-        DoLook();
+        if (!frozen)
+        {
+            DoMovement();
+            DoLook();
 
-        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(1))
-            ToggleEquipment();
+            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(1))
+                ToggleEquipment();
+        }
     }
 
     Tool GetNextTool()
@@ -117,4 +122,8 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
     }
 
+    public void SetFrozen(bool isFrozen)
+    {
+        frozen = isFrozen;
+    }
 }

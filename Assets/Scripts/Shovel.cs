@@ -10,9 +10,11 @@ public class Shovel : MonoBehaviour
     Transform shovelHeadTransform;
     [SerializeField]
     float digRadius = 3f;
+    [SerializeField]
+    PlayerController player;
 
     Animator animator;
-    bool canDig = true;
+    bool isDigging = false;
 
     AudioSource digAudio;
 
@@ -24,15 +26,16 @@ public class Shovel : MonoBehaviour
 
     void OnEnable()
     {
-        // play animation
+        // play animation??
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && canDig)
+        if (Input.GetMouseButtonDown(0) && !isDigging)
         {
             animator.SetTrigger("dig");
-            canDig = false;
+            isDigging = true;
+            player.SetFrozen(true);
         }
     }
 
@@ -56,8 +59,9 @@ public class Shovel : MonoBehaviour
         }
     }
 
-    void SetCanDig()
+    void SetIsDiggingFalse()
     {
-        canDig = true;
+        isDigging = false;
+        player.SetFrozen(false);
     }
 }
