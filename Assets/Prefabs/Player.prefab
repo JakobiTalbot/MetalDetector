@@ -418,24 +418,24 @@ MonoBehaviour:
     - serializedVersion: 3
       time: -0.00091171265
       value: 0
-      inSlope: 1.072716
-      outSlope: 1.072716
+      inSlope: 0.48407823
+      outSlope: 0.48407823
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.058936346
+      outWeight: 0.059952874
     - serializedVersion: 3
-      time: 0.73003846
-      value: 0.508329
-      inSlope: 1.2837715
-      outSlope: -0.042971775
+      time: 0.7213715
+      value: 0.20176083
+      inSlope: 0.2029779
+      outSlope: -0.0030535064
       tangentMode: 65
       weightedMode: 0
-      inWeight: 0.05701846
+      inWeight: 0.09830877
       outWeight: 0.0748603
     - serializedVersion: 3
-      time: 1.004583
-      value: 0.4965313
+      time: 0.9969167
+      value: 0.20091945
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -489,6 +489,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   weeWooSpeed: 20
   weeWooAmplitude: 0.2
+  sampleProg: 50.29
 --- !u!82 &3014454133817803554
 AudioSource:
   m_ObjectHideFlags: 0
@@ -499,16 +500,16 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4857ddb4fa72e53488e48440c71b09e8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 14e5db55e6c5eb343a440da65674c69b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.19
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0

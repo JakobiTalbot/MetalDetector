@@ -16,12 +16,16 @@ public class MetalDetector : MonoBehaviour
     public float weeWooSpeed = 1.0f;
     public float weeWooAmplitude = 1.0f;
 
+    // this is the good number
+    public float sampleProg = 50.29f;
+
     List<FindableContainer> findablesInRange = new List<FindableContainer>();
     AudioSource humSource;
 
     void Start()
     {
         humSource = GetComponent<AudioSource>();
+        MakeNewSound();
     }
 
     void OnEnable()
@@ -29,6 +33,27 @@ public class MetalDetector : MonoBehaviour
         // play animation
         findablesInRange.Clear();
     }
+    void MakeNewSound()
+    {
+        const int sampleCount = 4410;
+        AudioClip newSineWave = AudioClip.Create("my_hum", sampleCount, 1, 44100, false);
+
+        float[] sineData = new float[sampleCount];
+
+        for(int i = 0; i < sampleCount; ++i)
+        {
+            float prog = (i / (float)sampleCount) * sampleProg;
+
+            sineData[i] = Mathf.Sin(prog);
+
+            if (i == sampleCount - 1)
+                sineData[i] = 0;
+        }
+
+        newSineWave.SetData(sineData, 0);
+        humSource.clip = newSineWave;
+    }
+
 
     void Update()
     {
