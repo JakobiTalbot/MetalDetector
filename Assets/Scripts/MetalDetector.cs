@@ -11,6 +11,10 @@ public class MetalDetector : MonoBehaviour
     public Vector2 detectionRange;
     public AnimationCurve volumeCurve;
     public AnimationCurve pitchCurve;
+    public float maxParticleEmission = 50f;
+    public AnimationCurve particleEmissionCurve;
+    public float maxParticleSpeed = 5f;
+    public AnimationCurve particleSpeedCurve;
 
     [Header("WeeWoo")]
     public float weeWooSpeed = 1.0f;
@@ -21,6 +25,8 @@ public class MetalDetector : MonoBehaviour
 
     List<FindableContainer> findablesInRange = new List<FindableContainer>();
     AudioSource humSource;
+    [SerializeField]
+    ParticleSystem particles;
 
     void Start()
     {
@@ -71,9 +77,17 @@ public class MetalDetector : MonoBehaviour
             float volume = volumeCurve.Evaluate(percentage);
             float pitch = pitchCurve.Evaluate(percentage);
 
+            float emissionRate = particleEmissionCurve.Evaluate(percentage) * maxParticleEmission;
+            var emission = particles.emission;
+            emission.rateOverTime = emissionRate;
+            float speed = particleSpeedCurve.Evaluate(percentage) * maxParticleSpeed;
+            var main = particles.main;
+            main.startSpeed = speed;
+
             if (distance <= detectionRange.x)
             {
                 pitch += Mathf.Sin(Time.time * weeWooSpeed) * weeWooAmplitude;
+                // TODO: more, different coloured particles here
             }
 
             humSource.volume = volume;
@@ -82,6 +96,11 @@ public class MetalDetector : MonoBehaviour
         else if(humSource.isPlaying)
         {
             humSource.Pause();
+
+            var emission = particles.emission;
+            emission.rateOverTime = 0f;
+            var main = particles.main;
+            main.startSpeed = 0f;
         }
     }
 
