@@ -16,13 +16,18 @@ public class BobbleBody : MonoBehaviour
 
     private void Update()
     {
-        Vector3 destRot = transform.rotation * (new Vector3(moveVec.z, 0.0f, moveVec.x) * bobbleAmount);
+        float amt = bobbleAmount;
+        // don't ask
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+            amt /= 4.0f;
+
+        Vector3 destRot = transform.rotation * (new Vector3(moveVec.z, 0.0f, moveVec.x) * amt);
         destRot.z *= -1.0f;
 
         Quaternion destQuaternion = Quaternion.Euler(destRot);
 
         Quaternion difQuaternion = destQuaternion * Quaternion.Inverse(transform.localRotation);
-        Quaternion bPart = Quaternion.Lerp(Quaternion.identity, difQuaternion, bouncySpeed);
+        Quaternion bPart = Quaternion.Lerp(Quaternion.identity, difQuaternion, bouncySpeed * Time.deltaTime);
         rotQuat = Quaternion.SlerpUnclamped(rotQuat, bPart, bounciness * Time.deltaTime);
 
         transform.localRotation *= rotQuat;
