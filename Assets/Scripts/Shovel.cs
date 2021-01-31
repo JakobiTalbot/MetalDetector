@@ -14,9 +14,9 @@ public class Shovel : MonoBehaviour
     PlayerController player;
 
     Animator animator;
-    bool isDigging = false;
 
     AudioSource digAudio;
+    bool foundFindable = false;
 
     private void Start()
     {
@@ -31,10 +31,9 @@ public class Shovel : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isDigging && !player.Frozen) 
+        if (Input.GetMouseButtonDown(0) && !player.Frozen) 
         {
             animator.SetTrigger("dig");
-            isDigging = true;
             player.Frozen = true;
         }
     }
@@ -56,6 +55,7 @@ public class Shovel : MonoBehaviour
             {
                 findable.transform.position = hole.position;
                 findable.Reveal();
+                foundFindable = true;
                 return;
             }
         }
@@ -63,8 +63,7 @@ public class Shovel : MonoBehaviour
 
     void SetIsDiggingFalse()
     {
-        isDigging = false;
-        if (!UIManager.instance.continueButton.gameObject.activeSelf)
-            player.Frozen = true;
+        if (!foundFindable)
+            player.Frozen = false;
     }
 }
