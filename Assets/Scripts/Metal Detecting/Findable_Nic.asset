@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db98f5de60f97054899b37dfffc51688, type: 3}
   m_Name: Findable_Nic
   m_EditorClassIdentifier: 
-  objectName: Nic
-  description: good object
+  objectName: Photo of a man
+  description: He looks familiar...
   prefab: {fileID: 1163360215570786165, guid: 1e1befd0ac0316a4ca915248a618450a, type: 3}
   showcaseCameraOffset: {x: 0, y: 0, z: -2.14}

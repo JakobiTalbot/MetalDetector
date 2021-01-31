@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Findable_Declaration
   m_EditorClassIdentifier: 
   objectName: Declaration of Independence
-  description: hio
+  description: Someone better not steal this...
   prefab: {fileID: 7307955738432943861, guid: d4ac42a2929b1c34aacccb807246d98a, type: 3}
   showcaseCameraOffset: {x: 0, y: 0, z: -1.05}

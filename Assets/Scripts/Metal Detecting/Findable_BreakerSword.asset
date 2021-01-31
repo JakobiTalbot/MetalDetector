@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Findable_BreakerSword
   m_EditorClassIdentifier: 
   objectName: Sword
-  description: Ahh I'm on CLOUD nine!
+  description: I'm on CLOUD nine!
   prefab: {fileID: 4518633901312169094, guid: f4a8046999b2e25488a8286012987a67, type: 3}
   showcaseCameraOffset: {x: 0, y: -0.63, z: -0.36}

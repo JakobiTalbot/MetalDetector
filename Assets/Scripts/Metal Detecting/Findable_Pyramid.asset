@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Findable_Pyramid
   m_EditorClassIdentifier: 
   objectName: Pyramid
-  description: good object
+  description: Smells like a conspiracy... oh wait, nevermind, it's just a lawsuit.
   prefab: {fileID: 2019704221809373230, guid: c12958b9f7e76134da2cf20c1cf4bce1, type: 3}
   showcaseCameraOffset: {x: 0, y: -0.24, z: -1.44}

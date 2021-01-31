@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Findable_Emerald
   m_EditorClassIdentifier: 
   objectName: Emerald
-  description: good object
+  description: Ooh... shiny!
   prefab: {fileID: 4699736675828549590, guid: 1816b5c3a4879b44b8c023936c750eda, type: 3}
   showcaseCameraOffset: {x: 0, y: -0.06, z: -2.16}

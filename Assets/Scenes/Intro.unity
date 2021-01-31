@@ -332,7 +332,7 @@ Transform:
   m_GameObject: {fileID: 389339556}
   m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 1, y: 1, z: 150}
-  m_LocalScale: {x: 36, y: 36, z: 36}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -642,6 +642,7 @@ MonoBehaviour:
   introMusic: {fileID: 1097451355}
   crawlText: {fileID: 1569831518}
   crawlSpeed: 2
+  menuManager: {fileID: 60560283}
 --- !u!4 &995964331
 Transform:
   m_ObjectHideFlags: 0
@@ -750,9 +751,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7421aebb19b8fef4a98956233f946db0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d7895c53976aa56449cdbb3329383a94, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.122
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1043,12 +1044,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-    bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla '
+  m_text: 'Tragedy! A cowboy is walking through a desert on his way home with a briefcase
+    full of valuables, when suddenly, the desert conjures up a massive sandstorm!
+
+
+    Suddenly,
+    the sandstorm takes hold of the cowboy''s briefcase and it is flung wide open!
+    All of the cowboys valuables are thrown across the desert landscape and buried
+    deep within the sand, all of his valuables except for his trusty shovel and metal
+    detector.
+
+
+    Armed with his family heirloom shovel and custom-made metal detector,
+    the cowboy sets out to retrieve all his valuables.
+
+
+    You are that cowboy,\nthis
+    is your story.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1075,8 +1087,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -34,6 +34,8 @@ public class IntroManager : MonoBehaviour
     Transform crawlText;
     [SerializeField]
     float crawlSpeed = 5f;
+    [SerializeField]
+    MainMenuManager menuManager;
 
     void Start()
     {
@@ -72,6 +74,7 @@ public class IntroManager : MonoBehaviour
         stars.SetActive(true);
 
         introMusic.Play();
+        Invoke("LoadLevel", introMusic.clip.length + 2f);
         StartCoroutine(PushBackTitle());
     }
 
@@ -121,5 +124,10 @@ public class IntroManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    void LoadLevel()
+    {
+        menuManager.LoadScene(1);
     }
 }
