@@ -42,6 +42,14 @@ public class RadialFill : MonoBehaviour
                 whenFilled.Invoke();
             }
         }
+        else if (Input.anyKey)
+        {
+            if (coroutineRunning)
+            {
+                StopAllCoroutines();
+            }
+            canvasGroup.alpha = 1f;
+        }
         else if (radialFillCircle.fillAmount > 0f)
         {
             radialFillCircle.fillAmount -= Time.deltaTime / timeToFill;
