@@ -8,6 +8,7 @@ public class LegController : MonoBehaviour
 
     public int linePoints = 10;
     public Transform footTransform;
+    public Vector3 legEndOffset;
     public float stepHeight = 2.0f;
     public float stepSpeed = 1.0f;
     public bool IsMoving { get; private set; } = false;
@@ -35,8 +36,8 @@ public class LegController : MonoBehaviour
             footTransform.position = footPos;
 
         Vector3 startPos = transform.position;
-        Vector3 endPos = footTransform.position;
-        footPos = endPos;
+        Vector3 endPos = footTransform.position + legEndOffset;
+        footPos = footTransform.position;
 
         Vector3 dif = startPos - endPos;
         dif.y = 0.0f;
