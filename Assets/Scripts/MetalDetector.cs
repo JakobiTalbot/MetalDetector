@@ -33,7 +33,7 @@ public class MetalDetector : MonoBehaviour
     void Start()
     {
         humSource = GetComponent<AudioSource>();
-        MakeNewSound();
+        //MakeNewSound();
     }
 
     void OnEnable()
@@ -46,7 +46,7 @@ public class MetalDetector : MonoBehaviour
 
     void MakeNewSound()
     {
-        const int sampleCount = 4410;
+        const int sampleCount = 44100 * 60;
         AudioClip newSineWave = AudioClip.Create("my_hum", sampleCount, 1, 44100, false);
 
         float[] sineData = new float[sampleCount];

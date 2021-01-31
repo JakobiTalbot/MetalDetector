@@ -5016,7 +5016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobbleAmount: -1200
   bounciness: 10
-  bouncySpeed: 0.1
+  bouncySpeed: 15
 --- !u!1 &1281820694325887500
 GameObject:
   m_ObjectHideFlags: 0
@@ -10001,8 +10001,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.059952874
     - serializedVersion: 3
-      time: 0.7213715
-      value: 0.20176083
+      time: 0.7177886
+      value: 0.40358934
       inSlope: 0.2029779
       outSlope: -0.0030535064
       tangentMode: 65
@@ -10010,8 +10010,8 @@ MonoBehaviour:
       inWeight: 0.09830877
       outWeight: 0.0748603
     - serializedVersion: 3
-      time: 0.9969167
-      value: 0.20091945
+      time: 0.9933338
+      value: 0.40274796
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10128,7 +10128,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 14e5db55e6c5eb343a440da65674c69b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b8ecbde3550fe054490406bc5a1d0e2d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.19
   m_Pitch: 1
