@@ -16,7 +16,9 @@ public class Shovel : MonoBehaviour
     Animator animator;
 
     AudioSource digAudio;
-    bool foundFindable = false;
+
+    [HideInInspector]
+    public bool foundFindable = false;
 
     private void Start()
     {
@@ -64,6 +66,8 @@ public class Shovel : MonoBehaviour
     void SetIsDiggingFalse()
     {
         if (!foundFindable)
+        {
             player.Frozen = false;
+        }
     }
 }

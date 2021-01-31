@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [Header("References")]
     public PlayerController player;
     public FindableSpawner objectSpawner;
+    public Shovel shovel;
     
     [Header("UI References")]
     public ToolDisplay toolDisplay;
@@ -99,6 +100,7 @@ public class UIManager : MonoBehaviour
     {
         player.SetTool(Tool.Detector);
         player.Frozen = false;
+        shovel.foundFindable = false;
 
         Destroy(findableContainer);
         continueButton.gameObject.SetActive(false);
