@@ -1050,17 +1050,18 @@ MonoBehaviour:
 
     Suddenly,
     the sandstorm takes hold of the cowboy''s briefcase and it is flung wide open!
-    All of the cowboys valuables are thrown across the desert landscape and buried
-    deep within the sand, all of his valuables except for his trusty shovel and metal
-    detector.
+    All of the cowboy''s valuables are thrown across the desert landscape and buried
+    deep within the sand.
 
 
-    Armed with his family heirloom shovel and custom-made metal detector,
-    the cowboy sets out to retrieve all his valuables.
+    Armed with his family heirloom shovel and custom-made
+    metal detector, the cowboy sets out to retrieve all his valuables.
 
 
-    You are that cowboy,\nthis
-    is your story.'
+    You
+    are that cowboy.
+
+    This is your story.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
