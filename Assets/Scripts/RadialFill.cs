@@ -10,8 +10,6 @@ public class RadialFill : MonoBehaviour
     [SerializeField]
     float timeToFill = 2f;
     [SerializeField]
-    KeyCode buttonToFill;
-    [SerializeField]
     UnityEvent whenFilled;
     [SerializeField]
     float timeToWaitBeforeFadingOut = 1f;
@@ -28,7 +26,7 @@ public class RadialFill : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(buttonToFill))
+        if (Input.anyKey)
         {
             if (coroutineRunning)
             {
@@ -41,14 +39,6 @@ public class RadialFill : MonoBehaviour
             {
                 whenFilled.Invoke();
             }
-        }
-        else if (Input.anyKey)
-        {
-            if (coroutineRunning)
-            {
-                StopAllCoroutines();
-            }
-            canvasGroup.alpha = 1f;
         }
         else if (radialFillCircle.fillAmount > 0f)
         {
