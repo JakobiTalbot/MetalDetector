@@ -20,8 +20,6 @@ public class UIManager : MonoBehaviour
     public Transform continueButton;
     [SerializeField]
     TextMeshProUGUI time;
-    [SerializeField] 
-    TextMeshProUGUI popupNotification;
     [SerializeField]
     TextMeshProUGUI progress;
     [SerializeField]
@@ -35,7 +33,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] 
     Findables findable;
 
-    Animator popupAnim;
     GameObject findableContainer;
     float secondsSinceStart;
     int numberOfFindables;
@@ -62,7 +59,6 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(Count());
-        popupAnim = popupNotification.GetComponentInParent<Animator>();
     }
 
     private void OnDisable()
@@ -105,12 +101,6 @@ public class UIManager : MonoBehaviour
         Destroy(findableContainer);
         continueButton.gameObject.SetActive(false);
         IncrementProgress();
-        
-        // Popup
-        string temp = $"{findable.objectName} found:@ {findable.description}";
-        temp = temp.Replace("@", System.Environment.NewLine);
-        popupNotification.text = temp;
-        popupAnim.SetBool("Popup", true);
     }
 
     public void IncrementProgress()
