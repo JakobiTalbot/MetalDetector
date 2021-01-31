@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     Camera cam;
     CharacterController characterController;
     LegManager legManager;
+    BobbleBody bobbleBody;
 
     Quaternion targetRotation;
 
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
         legManager = GetComponentInChildren<LegManager>();
+        bobbleBody = GetComponentInChildren<BobbleBody>();
         if(legManager == null)
         {
             Debug.LogError("Leg manager missing!");
@@ -112,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (legManager != null)
         {
             Vector3 dif = newPos - oldPos;
+            bobbleBody.SetMoveVector(dif);
             float dot = Vector3.Dot(dif.normalized, moveVector.normalized);
             if (dot > 0.2f)
             {

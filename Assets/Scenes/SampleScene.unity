@@ -123,42 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &14697244 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8558255979574024613, guid: d04d9c787c779ab47addf70df8a3e738, type: 3}
-  m_PrefabInstance: {fileID: 3357823135581370827}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &14697246
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14697244}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dd4639750e8633847b91393ff4be0417, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &14697249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14697244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e74b081948a61a042a81a54cdeaf9701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &445072298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -950,7 +914,7 @@ PrefabInstance:
     - target: {fileID: 3357823134089486987, guid: d04d9c787c779ab47addf70df8a3e738, type: 3}
       propertyPath: popupNotification
       value: 
-      objectReference: {fileID: 3357823135581370828}
+      objectReference: {fileID: 0}
     - target: {fileID: 3357823134089487088, guid: d04d9c787c779ab47addf70df8a3e738, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1137,14 +1101,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d04d9c787c779ab47addf70df8a3e738, type: 3}
---- !u!114 &3357823135581370828 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6945856554494070699, guid: d04d9c787c779ab47addf70df8a3e738, type: 3}
-  m_PrefabInstance: {fileID: 3357823135581370827}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -4854,6 +4854,7 @@ MonoBehaviour:
   shovelHeadTransform: {fileID: 7868021945001991092}
   digRadius: 3
   player: {fileID: 1281820694325887505}
+  foundFindable: 0
 --- !u!82 &402898888
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4978,6 +4979,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 771455330038262821}
+  - component: {fileID: 8798379872123270317}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -5000,6 +5002,21 @@ Transform:
   m_Father: {fileID: 22631597986856042}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8798379872123270317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92797392556491583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1021e0179f29c49bbda8392813328f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobbleAmount: -1200
+  bounciness: 10
+  bouncySpeed: 0.1
 --- !u!1 &1281820694325887500
 GameObject:
   m_ObjectHideFlags: 0
