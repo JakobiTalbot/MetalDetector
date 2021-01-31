@@ -5,7 +5,7 @@ using UnityEngine;
 public class FootstepCreator : MonoBehaviour
 {
 
-    const float zfightAdjust = 0.01f;
+    const float zfightAdjust = 0.03f;
 
     public GameObject footstepPrefab;
     public int maxFootsteps = 10;
@@ -31,6 +31,9 @@ public class FootstepCreator : MonoBehaviour
             var newFootstep = Instantiate(footstepPrefab);
             newFootstep.transform.position = hit.point + (hit.normal * zfightAdjust);
             newFootstep.transform.up = hit.normal;
+            var euler = newFootstep.transform.eulerAngles;
+            euler.y = transform.parent.parent.rotation.eulerAngles.y;
+            newFootstep.transform.eulerAngles = euler;
             allFootsteps.Enqueue(newFootstep);
             if (allFootsteps.Count > maxFootsteps)
             {
