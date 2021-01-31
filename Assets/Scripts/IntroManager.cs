@@ -13,6 +13,8 @@ public class IntroManager : MonoBehaviour
     [SerializeField]
     float startTextStayTime = 4f;
     [SerializeField]
+    GameObject stars;
+    [SerializeField]
     TextMeshPro titleText;
     [SerializeField]
     float titleTextWaitTime = 3f;
@@ -67,6 +69,7 @@ public class IntroManager : MonoBehaviour
         yield return new WaitForSeconds(titleTextWaitTime);
 
         titleText.gameObject.SetActive(true);
+        stars.SetActive(true);
 
         introMusic.Play();
         StartCoroutine(PushBackTitle());
