@@ -62,6 +62,9 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(1))
                 ToggleEquipment();
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+            UIManager.instance.IncrementProgress();
     }
 
     Tool GetNextTool()
