@@ -31,6 +31,7 @@ public class RadialFill : MonoBehaviour
             if (coroutineRunning)
             {
                 StopAllCoroutines();
+                coroutineRunning = false;
             }
             canvasGroup.alpha = 1f;
 
