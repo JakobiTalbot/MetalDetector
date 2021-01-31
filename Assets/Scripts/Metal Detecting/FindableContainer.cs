@@ -30,6 +30,8 @@ public class FindableContainer : MonoBehaviour
         Vector3 b2 = transform.position + Vector3.up * 10.0f;
         Vector3 destPos = Vector3.zero;
 
+        Quaternion rotVel = Random.rotation;
+
         float lerp = 0f;
         while (lerp <= revealSeconds)
         {
@@ -41,6 +43,7 @@ public class FindableContainer : MonoBehaviour
 
             float t = EaseInOut(lerp / revealSeconds);
             transform.position = Util.Bezier(t, b4, b3, b2, b1);
+            transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation * rotVel, (Time.deltaTime * 10.0f) * (1.0f - t));
             yield return null;
         }
 
